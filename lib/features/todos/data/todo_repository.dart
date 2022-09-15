@@ -22,7 +22,7 @@ class TodoRepository implements ITodoRepository {
   }
 
   @override
-  Future<Todo?> getOne(int id) async {
+  Future<Todo?> getOne(String id) async {
     final todo = Future.delayed(const Duration(seconds: 1), () async {
       var item = await apiRepository.get('todos/$id');
       return item.data != null ? Todo.fromMap(item.data) : null;
